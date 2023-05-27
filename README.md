@@ -32,6 +32,10 @@ chmod +x x86_64-qbittorrent-nox
 后台运行：  
 ~~~
 ./x86_64-qbittorrent-nox -d
+
+#关闭防火墙
+systemctl stop firewalld.service
+systemctl disable firewalld.service
 ~~~
 然后IP:8080就能访问了,用户：admin，密码:adminadmin  
 
