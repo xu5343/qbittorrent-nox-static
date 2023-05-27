@@ -1,6 +1,6 @@
 # qbittorrent-nox-static
 
-This repo contains a build script for `qbittorent-nox` to create a fully static automatically using the current releases of the main dependencies, and an install script for installing `qbittorent-nox` to your seedbox.
+This repo contains a build script for `qbittorent-nox` to creat5e a fully static automatically using the current releases of the main dependencies, and an install script for installing `qbittorent-nox` to your seedbox.
 
 ## Installation
 
@@ -17,7 +17,23 @@ For example:
 ```shell
 bash <(curl -Ls https://github.com/Aniverse/qbittorrent-nox-static/raw/master/install.sh) -u aniverse -p only4test \
 -w 8080 -v 4.2.3.lt.1.1.14
-```
+```  
+其他安装方法:  
+
+测试通过:  
+~~~
+bash <(wget -qO- --no-check-certificate https://github.com/Aniverse/qbittorrent-nox-static/raw/master/install.sh) -u admin -p admin -w 8081
+~~~
+手动方法：  
+~~~
+wget https://github.com/userdocs/qbittorrent-nox-static/releases/download/release-4.3.5_v2.0.4/x86_64-qbittorrent-nox
+chmod +x x86_64-qbittorrent-nox
+~~~
+后台运行：  
+~~~
+./x86_64-qbittorrent-nox -d
+~~~
+然后IP:8080就能访问了,用户：admin，密码:adminadmin  
 
 ## Download
 
