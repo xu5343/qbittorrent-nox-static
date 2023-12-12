@@ -19,7 +19,10 @@ bash <(curl -Ls https://github.com/Aniverse/qbittorrent-nox-static/raw/master/in
 -w 8080 -v 4.2.3.lt.1.1.14
 ```  
 其他安装方法:  
-
+qBittorrent-Enhanced-Edition二次开发版本
+~~~
+https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases
+~~~
 测试通过:  
 ~~~
 bash <(wget -qO- --no-check-certificate https://github.com/Aniverse/qbittorrent-nox-static/raw/master/install.sh) -u admin -p admin -w 8081
