@@ -22,6 +22,8 @@ bash <(curl -Ls https://github.com/Aniverse/qbittorrent-nox-static/raw/master/in
 qBittorrent-Enhanced-Edition二次开发版本
 ~~~
 https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases
+小白推荐下载-4.6.0版本（用户：admin，密码:adminadmin）：
+https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases/download/release-4.6.0.10/qbittorrent-enhanced-nox_x86_64-linux-musl_static.zip
 ~~~
 测试通过:  
 ~~~
