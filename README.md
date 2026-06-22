@@ -11,9 +11,7 @@ This script will also setup configuration, including systemd service and WebUI p
 
 ## 一键安装最新版本脚本
 ~~~
-# 1. 粘贴代码
 wget https://raw.githubusercontent.com/xu5343/qbittorrent-nox-static/master/install-qbee.sh && chmod +x install-qbee.sh && ./install-qbee.sh
-
 ~~~
 
 ```shell
