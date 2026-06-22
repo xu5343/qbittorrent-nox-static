@@ -44,6 +44,81 @@ systemctl disable firewalld.service
 ~~~
 然后IP:8080就能访问了,用户：admin，密码:adminadmin  
 
+## 手动安装最新版本+一键密码设置
+~~~
+cd /opt
+wget https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases/download/release-5.2.1.10/qbittorrent-enhanced-nox_linux_x86_64_static.zip
+
+# 解压
+apt install -y unzip
+unzip qbittorrent-enhanced-nox_linux_x86_64_static.zip
+
+# 赋予执行权限
+chmod +x qbittorrent-nox
+
+# 移动到系统路径
+mv qbittorrent-nox /usr/local/bin/
+
+# 创建配置目录
+mkdir -p /root/.config/qBittorrent
+
+# 创建 systemd 服务
+nano /etc/systemd/system/qbittorrent-nox.service
+
+# 粘贴以下内容：
+[Unit]
+Description=qBittorrent-Enhanced-Edition Daemon
+After=network.target
+
+[Service]
+Type=forking
+User=root
+ExecStart=/usr/local/bin/qbittorrent-nox -d --webui-port=8080
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+
+# 启动服务
+# 重新加载 systemd
+systemctl daemon-reload
+
+# 启动服务
+systemctl start qbittorrent-nox
+
+# 设置开机自启
+systemctl enable qbittorrent-nox
+
+# 查看状态
+systemctl status qbittorrent-nox
+
+# 直接设置固定密码
+
+# 停止服务
+systemctl stop qbittorrent-nox
+
+# 备份现有配置（如果有）
+cp /root/.config/qBittorrent/qBittorrent.conf /root/.config/qBittorrent/qBittorrent.conf.bak 2>/dev/null
+
+# 创建配置文件，设置密码为 adminadmin
+mkdir -p /root/.config/qBittorrent
+cat > /root/.config/qBittorrent/qBittorrent.conf << 'EOF'
+[Preferences]
+WebUI\Username=admin
+WebUI\Password_PBKDF2="@ByteArray(ARQ77eY1NUZaQsuDHbIMCA==:0WMRkYTUWVT9wVvdDtHAjU9b3b7uB8NR1Gur2hmQCvCDpm39Q+PsJRJPaCU51dEiz+dTzh8qbPsL8WkFljQYFQ==)"
+EOF
+
+# 启动服务
+systemctl start qbittorrent-nox
+
+现在可以用这个登录：
+
+用户名：admin
+密码：adminadmin
+登录后立即在 Web UI 里修改成你自己的密码！
+~~~
+
 ## Download
 
 My qBittorrent static builds can be downloaded [here](https://sourceforge.net/projects/inexistence/files/qbittorrent/).  
