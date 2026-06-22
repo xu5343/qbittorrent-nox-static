@@ -9,6 +9,13 @@ This script has been tested on Debian 8/9/10, Ubuntu 16.04/18.04, CentOS 7/8, Fe
 Shared seedboxes without root privilege will be supported later. Running script with root privilege will install qbittorrent to `/usr/bin/qbittorrent-nox`, while without root it will be installed to `$HOME/.local/bin/qbittorrent-nox`.  
 This script will also setup configuration, including systemd service and WebUI password.  
 
+## 一键安装最新版本脚本
+~~~
+# 1. 粘贴代码
+wget https://raw.githubusercontent.com/xu5343/qbittorrent-nox-static/master/install-qbee.sh && chmod +x install-qbee.sh && ./install-qbee.sh
+
+~~~
+
 ```shell
 bash <(wget -qO- --no-check-certificate https://github.com/Aniverse/qbittorrent-nox-static/raw/master/install.sh) \
 -u <username> -p <webui password> -w <webui port> -v <version>
